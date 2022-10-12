@@ -6,18 +6,22 @@ and that bit is the least significant one that is also set to 11 in xx.
 Desired solution
 Your function should work O(1)O(1) using bitwise operations.
 """
-
-nums = int(input())
-
-for x in range(nums):
-    digit = int(input())
-    digit = bin(digit)
-    stringVal = str(digit)
+# Parameter x is an integer
+# The function should return an integer
+def lsb(x):
+    x = bin(x)
+    stringVal = str(x)
     strRev = stringVal[::-1]
     
     for i in range(len(strRev)):
         if strRev[i] == '1':
             break
+    return 2**i
+###
+tests = int(input())
+for i in range(tests):
+    x = int(input())
+    answer = lsb(x)
+    print(answer)
 
-print(f'{2**i}')
 
